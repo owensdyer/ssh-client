@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "SSHClient (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "SSHClient (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
