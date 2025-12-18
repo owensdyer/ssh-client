@@ -2,32 +2,59 @@
     x:Class="SSHClient.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:SSHClient"
+    xmlns:local="using:SSHClient"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title="SSH Client">
 
-    <Grid Padding="24">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
 
-        <!-- Left panel: device list placeholder -->
-        <ListView x:Name="DevicesList"
-                  Grid.Column="0"/>
+    <Grid>
+        <!-- Define three rows: top bar, content & footer -->
+        <Grid.RowDefinitions>
+            <!-- Top bar height -->
+            <RowDefinition Height="Auto"/>
+            <!-- Scrollable content fills remaining space -->
+            <RowDefinition Height="*"/>
+            <!-- Footer -->
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
-        <!-- Right panel -->
-        <StackPanel Grid.Column="1"
-                    Spacing="16">
-            <TextBlock Text="Device"
-                       FontSize="22"
-                       FontWeight="SemiBold"/>
-            <Button x:Name="ConnectButton"
-                    Content="Connect"
-                    Height="44"
-                    Click="ConnectButton_Click"/>
+        <!-- Top bar: Add Device button -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Padding="12" Spacing="8">
+            <Button Content="+ Add Device" Click="OpenAddDeviceWindow_Click" Height="36"/>
         </StackPanel>
+
+        <!-- Scrollable device list -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="DevicesPanel" Spacing="8" Padding="12"/>
+        </ScrollViewer>
+
+        <!-- Footer -->
+        <Border Grid.Row="2"
+        Padding="6"
+        Background="{ThemeResource SystemControlBackgroundBaseLowBrush}">
+            <TextBlock FontSize="11"
+               HorizontalAlignment="Center"
+               TextAlignment="Center">
+
+        <Run Text="© 2026 Owen Dyer  •  "/>
+
+        <Hyperlink NavigateUri="https://github.com/owensdyer/ssh-client">
+            <Run Text="GitHub"/>
+        </Hyperlink>
+
+        <Run Text="  •  "/>
+
+        <Hyperlink NavigateUri="https://owendyer.co.uk">
+            <Run Text="Website"/>
+        </Hyperlink>
+
+            </TextBlock>
+        </Border>
+    
     </Grid>
 </Window>
