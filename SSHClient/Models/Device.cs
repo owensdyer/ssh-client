@@ -7,7 +7,7 @@ namespace SSHClient.Models
 {
     public class Device
     {
-        public required string DeviceName { get; set; }
+        public required string Nickname { get; set; }
         public required string IPAddress { get; set; }
         public required string Username { get; set; }
         public string? Password { get; set; }
