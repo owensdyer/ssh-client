@@ -22,6 +22,14 @@ namespace SSHClient
             var appWindow = AppWindow.GetFromWindowId(windowId);
             appWindow.Resize(new Windows.Graphics.SizeInt32(400, 400));
             appWindow.Title = "SSH Client - Add Device";
+
+            appWindow.Resize(new Windows.Graphics.SizeInt32(400, 300));
+
+            var overlappedPresenter = appWindow.Presenter as OverlappedPresenter;
+            if (overlappedPresenter != null)
+            {
+                overlappedPresenter.IsResizable = false; // Prevent resizing
+            }
         }
     }
 }

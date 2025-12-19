@@ -29,6 +29,14 @@ namespace SSHClient
             var windowId = Win32Interop.GetWindowIdFromWindow(handle);
             var appWindow = AppWindow.GetFromWindowId(windowId);
             appWindow.Resize(new Windows.Graphics.SizeInt32(800, 600));
+
+            var overlappedPresenter = appWindow.Presenter as OverlappedPresenter;
+            if (overlappedPresenter != null)
+            {
+                overlappedPresenter.IsResizable = false; // Prevent resizing
+            }
+
+            appWindow.Resize(new Windows.Graphics.SizeInt32(800, 600));
             appWindow.Title = "SSH Client";
 
             // DEBUG: Load dummy devices
