@@ -22,6 +22,7 @@ namespace SSHClient
         public MainWindow()
         {
             this.InitializeComponent();
+            LoggingService.Info("MainWindow initialized");
 
             // Set window size
             var handle = WinRT.Interop.WindowNative.GetWindowHandle(this);
@@ -161,7 +162,7 @@ namespace SSHClient
                 var settingsButton = new Button { Content = "⚙" };
                 settingsButton.Click += (s, e) => EditDevice(device);
                 var connectButton = new Button { Content = "Connect" };
-                connectButton.Click += (s, e) => ConnectDevice(device);
+                //connectButton.Click += (s, e) => ConnectDevice(device);
                 buttonStack.Children.Add(settingsButton);
                 buttonStack.Children.Add(connectButton);
                 Grid.SetColumn(buttonStack, 1);
@@ -183,22 +184,22 @@ namespace SSHClient
         // - - - - - - - - - -
         // Device methods
         // - - - - - - - - - -
-        private static void ConnectDevice(Device device)
-        {
-            // Retrieve password from Windows Credential Manager
-            string? password = CredentialService.GetPassword(device.CredentialKey);
+        //private static void ConnectDevice(Device device)
+        //{
+        //    // Retrieve password from Windows Credential Manager
+        //    string? password = CredentialService.GetPassword(device.CredentialKey);
 
-            // Launch Windows Terminal SSH command
-            string args = $"ssh {device.Username}@{device.IPAddress}";
-            // Optional: handle password prompt if needed
+        //    // Launch Windows Terminal SSH command
+        //    string args = $"ssh {device.Username}@{device.IPAddress}";
+        //    // Optional: handle password prompt if needed
 
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = "wt.exe",
-                Arguments = args,
-                UseShellExecute = true
-            });
-        }
+        //    Process.Start(new ProcessStartInfo
+        //    {
+        //        FileName = "wt.exe",
+        //        Arguments = args,
+        //        UseShellExecute = true
+        //    });
+        //}
 
         private void EditDevice(Device device)
         {
