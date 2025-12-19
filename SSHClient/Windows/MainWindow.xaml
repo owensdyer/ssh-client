@@ -41,7 +41,7 @@
                HorizontalAlignment="Center"
                TextAlignment="Center">
 
-        <Run Text="© 2026 Owen Dyer  •  "/>
+        <Run Text="&#x00A9; 2026 Owen Dyer  •  "/>
 
         <Hyperlink NavigateUri="https://github.com/owensdyer/ssh-client">
             <Run Text="GitHub"/>
