@@ -37,7 +37,7 @@ namespace SSHClient
             }
 
             appWindow.Resize(new Windows.Graphics.SizeInt32(800, 600));
-            appWindow.Title = "SSH Client";
+            appWindow.Title = "Main Menu | SSH Client";
 
             // DEBUG: Load dummy devices
             LoadDummyDevices();
